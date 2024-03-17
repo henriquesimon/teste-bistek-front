@@ -1,3 +1,9 @@
+import { Button } from "@/components/ui/button";
+
 export function ProductsForm() {
-  return <>ProductsForm</>;
+  return (
+    <>
+      <Button>Cadastrar</Button>
+    </>
+  );
 }
