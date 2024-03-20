@@ -41,5 +41,5 @@
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.6"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "https://teste-bistek-back.onrender.com"
 }
