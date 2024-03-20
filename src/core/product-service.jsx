@@ -1,7 +1,7 @@
 class ProductService {
   async createProduct(data) {
     try {
-      const response = await fetch("http://localhost:3000/product", {
+      const response = await fetch("https://teste-bistek-back.onrender.com/product", {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-type": "application/json" },
@@ -20,7 +20,7 @@ class ProductService {
   async getById(productId) {
     try {
       const response = await fetch(
-        `http://localhost:3000/product/${productId}`
+        `https://teste-bistek-back.onrender.com/product/${productId}`
       );
       if (response.ok) {
         return response.json();
@@ -43,7 +43,7 @@ class ProductService {
       }
 
       const response = await fetch(
-        `http://localhost:3000/product/${productId}`,
+        `https://teste-bistek-back.onrender.com/product/${productId}`,
         {
           method: "DELETE",
           headers: {
@@ -67,7 +67,7 @@ class ProductService {
   async updateProduct(productId, data) {
     try {
       const response = await fetch(
-        `http://localhost:3000/product/${productId}`,
+        `https://teste-bistek-back.onrender.com/product/${productId}`,
         {
           method: "PUT",
           body: JSON.stringify(data),
@@ -88,7 +88,7 @@ class ProductService {
 
   async getAllProducts() {
     try {
-      const response = await fetch("http://localhost:3000/product");
+      const response = await fetch("https://teste-bistek-back.onrender.com/product");
       if (response.ok) {
         return response.json();
       } else {
