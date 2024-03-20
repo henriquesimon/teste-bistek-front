@@ -1,5 +1,3 @@
-// ProductService.js
-
 class ProductService {
   async createProduct(data) {
     try {
@@ -19,20 +17,49 @@ class ProductService {
     }
   }
 
+  async getById(productId) {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/product/${productId}`
+      );
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Falha ao buscar o produto por ID.");
+      }
+    } catch (error) {
+      console.error("Erro:", error);
+      throw error;
+    }
+  }
+
   async deleteProduct(productId) {
     try {
+      const productToDelete = await this.getById(productId);
+
+      if (productToDelete && productToDelete.category) {
+        console.log("Erro ao excluir, categoria vinculada.");
+        return;
+      }
+
       const response = await fetch(
         `http://localhost:3000/product/${productId}`,
         {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
           mode: "cors",
         }
       );
+
       if (response.ok) {
+        return true;
       } else {
         throw new Error("Falha ao deletar o produto.");
       }
     } catch (error) {
+      console.error("Erro:", error);
       throw error;
     }
   }

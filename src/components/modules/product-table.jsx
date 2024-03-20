@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import {
@@ -10,7 +10,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 
-function ProductTable({ products, toggleProductStatus, deleteProduct }) {
+function ProductTable({ products, deleteProduct }) {
   return (
     <Table>
       <TableHeader>
@@ -37,7 +37,7 @@ function ProductTable({ products, toggleProductStatus, deleteProduct }) {
               })}
             </TableCell>
             <TableCell>
-              <button onClick={() => deleteProduct(product.id)}>Excluir</button>
+              <button onClick={() => deleteProduct(product.id)}>Excluir</button>{" "}
             </TableCell>
           </TableRow>
         ))}
